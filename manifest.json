@@ -1,0 +1,19 @@
+{
+	"name": "Krunker.io Resource Swapper",
+	"version": "0.0.1",
+	"manifest_version": 2,
+	"description": "https://github.com/tehchy",
+	"permissions": [
+		"webRequest",
+		"webRequestBlocking",
+		"https://krunker.io/*"
+	],
+	"web_accessible_resources": [
+		"*.obj", 
+		"*.png",
+		"*.mp3"
+	],
+	"background": {
+		"scripts": ["init.js"]
+	}
+}
