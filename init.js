@@ -21,7 +21,7 @@ function searchDir(parent, directories) {
                             redirectUrl:chrome.extension.getURL(file.fullPath.replace('/crxfs/', ''))
                         }
                     }, {
-                        urls: ['https://krunker.io/' + file.fullPath.replace('/crxfs/', '')]
+                        urls: ['*://krunker.io/' + file.fullPath.replace('/crxfs/', '') + '*']
                     }, ['blocking']);
                 }
             });
