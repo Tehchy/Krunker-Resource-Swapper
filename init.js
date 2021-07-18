@@ -13,7 +13,7 @@ function searchDir(parent, directories) {
             let reader = dir.createReader();
             reader.readEntries((results) => {
                 let newDirs = results.filter(x => x.isDirectory);
-                let useAssets = !(/\/(css|img|libs|sound)$/.test(dir.fullPath));
+                let useAssets = !(/\/(css|img|libs)$/.test(dir.fullPath));
                 let files = results.filter(x => x.isFile);
                 if (newDirs.length) searchDir(dir, newDirs);
                 for (let file of files) {
