@@ -13,7 +13,6 @@ function searchDir(parent, directories) {
             let reader = dir.createReader();
             reader.readEntries((results) => {
                 let newDirs = results.filter(x => x.isDirectory);
-                let useAssets = !(/\/(css|img|libs)$/.test(dir.fullPath));
                 let files = results.filter(x => x.isFile);
                 if (newDirs.length) searchDir(dir, newDirs);
                 for (let file of files) {
@@ -22,7 +21,7 @@ function searchDir(parent, directories) {
                             redirectUrl:chrome.extension.getURL(file.fullPath.replace('/crxfs/', ''))
                         }
                     }, {
-                        urls: ['*://' + (useAssets ? 'assets.':'') + 'krunker.io/' + file.fullPath.replace('/crxfs/', '') + '*']
+                        urls: ['*://*.krunker.io/' + file.fullPath.replace('/crxfs/', '') + '*']
                     }, ['blocking']);
                 }
             });
